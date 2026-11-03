@@ -1,0 +1,6 @@
+﻿# temas de prueba
+casas: casa, casas, propiedad, zona
+dinero: precio, caro, presupuesto, pago
+celular: whatsapp, mensaje, mensajes, visto
+clientes: cliente, clientes, prospecto
+kit: kit, guiones

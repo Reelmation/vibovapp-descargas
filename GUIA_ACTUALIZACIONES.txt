@@ -1,0 +1,44 @@
+GUIA DE ACTUALIZACIONES AUTOMATICAS (Vibovapp)
+==============================================
+Que hace: cuando publicas una version nueva, a quien tiene el programa le sale una ventana con "lo que cambio" y un boton
+"Actualizar ahora". El programa descarga el instalador, comprueba que sea el original (huella + firma), se cierra, se instala
+solo y se vuelve a abrir. Sus productos, videos, licencia y creditos se conservan. Al abrir la version nueva ve "Que hay de nuevo"
+con un boton "Ver como" que abre el tutorial de cada cosa agregada o cambiada.
+
+PREPARACION (una sola vez)
+1. Crea en GitHub un repositorio PUBLICO llamado  vibovapp-descargas  (sin codigo; solo guardara los instaladores).
+2. En tu repositorio PRIVADO (donde corres "Actions"): Settings > Secrets and variables > Actions > pestaña "Variables" >
+   "New repository variable".   Name:  DESCARGAS_REPO     Value:  TuUsuario/vibovapp-descargas
+3. En marca.py (una sola vez) pon:
+   URL_VERSION = "https://github.com/TuUsuario/vibovapp-descargas/releases/latest/download/version.json"
+   (esa direccion siempre apunta al version.json de la ULTIMA release, no hay que cambiarla)
+4. IMPORTANTE: tu SECRETO_LICENCIA de marca.py firma las claves, los archivos locales y las actualizaciones. Dejalo definitivo ANTES de repartir
+   esta version y NO lo cambies despues: si lo cambias, las claves ya vendidas dejan de funcionar y los archivos locales de cada persona
+   se consideran alterados (contador de videos agotado, creditos en 0).
+
+CADA VERSION NUEVA
+1. marca.py: sube VERSION (ejemplo: de "0.5.0" a "0.6.0").
+2. novedades.py: agrega arriba la entrada de ESA version con lo que cambio. Cada linea: tipo ("nuevo", "cambio" o "quitado"),
+   texto en español e ingles, y "tema" (la parte del tutorial que lo explica, para el boton "Ver como"; en los "quitado" normalmente va vacio).
+   Si cambiaste algo que el tutorial explica, corrige tambien guia.js / i18n_guia.js.
+3. Sube los archivos a tu repositorio privado > Actions > "Crear instalador de Windows" > Run workflow.
+4. Baja el resultado ("Vibovapp-Setup", un zip). Dentro hay DOS archivos: Vibovapp-Setup.exe y version.json.
+5. En el repositorio PUBLICO: Releases > "Draft a new release".
+     Tag:   v0.6.0    (la misma version con una v delante, EXACTO)
+     Arrastra los DOS archivos (Vibovapp-Setup.exe y version.json) > "Publish release".
+6. Listo. Los programas instalados lo detectan al abrirse (y cada 6 horas) y muestran el aviso.
+
+TAMBIEN SIRVE PARA GUMROAD
+Sube el mismo Vibovapp-Setup.exe al producto gratuito de Gumroad (reemplazando el anterior) para quien lo baje por primera vez.
+
+SI ALGO NO COINCIDE
+- Si el enlace, la huella o la firma del version.json no corresponden al instalador, el programa NO se instala solo: ofrece "Descargar a mano".
+  Eso pasa si cambias el instalador despues de crear el version.json. Sube siempre los dos archivos de la MISMA ejecucion de Actions.
+- Si la variable DESCARGAS_REPO no esta puesta, el workflow avisa y deja un enlace de relleno: las actualizaciones solo se podran descargar a mano.
+
+QUE NO PUDE PROBAR (necesita tu Windows)
+- La instalacion silenciosa real y que el programa se vuelva a abrir solo (lo probe con un instalador de mentira: descarga, huella, firma y avisos).
+  La PRIMERA vez prueba con una computadora: instala 5k (o la version actual), publica una version mas nueva y toca "Actualizar ahora".
+- Windows Defender / SmartScreen: como el archivo lo descarga el propio programa, lo normal es que no salga la pantalla azul, pero no lo puedo asegurar.
+- Las personas que ya tienen una version ANTERIOR a esta (sin esta funcion) deben instalar la nueva a mano UNA vez (por ejemplo desde Gumroad);
+  de ahi en adelante se actualizan con un clic.
