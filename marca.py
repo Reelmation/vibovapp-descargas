@@ -20,7 +20,7 @@ NOVEDADES_EN = [
     "Welcome screen and phone-friendly layout",
     "Duplicate file detection and footer with legal notice",
 ]
-TITULAR = ""          # nombre de la persona o empresa dueña del programa (aparece en el pie de página). Ej.: "Arturo Pérez" o "Mi Empresa S.A. de C.V."
+TITULAR = "Vibovapp y sus responsables"          # nombre de la persona o empresa dueña del programa (aparece en el pie de página). Ej.: "Arturo Pérez" o "Mi Empresa S.A. de C.V."
 ANIO_INICIO = 2026     # año en que empezó el programa (el pie muestra 2026 o 2026–2028, etc.)
 LEMA_ES = "Crea videos verticales con tus guiones, tus clips y tu estilo."
 LEMA_EN = "Create vertical videos with your scripts, your clips and your style."
@@ -28,5 +28,5 @@ LEMA_EN = "Create vertical videos with your scripts, your clips and your style."
 # ---- Licencias ---------------------------------------------------------------
 # CAMBIA este texto por uno largo y secreto tuyo ANTES de vender. Con él se firman las claves (generar_clave.py).
 # Nunca lo compartas ni lo subas a un lugar público.
-SECRETO_LICENCIA = "CAMBIA-ESTE-TEXTO-POR-UNO-SECRETO"
+SECRETO_LICENCIA = "jN5QX4n84F26HMgarNXcHiaQL496NVbo"
 URL_COMPRA = ""        # página donde se compra o mejora el plan (se muestra en los avisos de límite)
