@@ -26,7 +26,7 @@ PRODUCTOS = {
 
 # --- 2) Reglas ----------------------------------------------------------------------------------------------
 ACTIVACIONES = 1      # en cuántas computadoras se puede activar una misma clave de plan (Gumroad no sabe cuáles; cuenta activaciones)
-GRACIA_DIAS = 7       # días que el plan sigue funcionando sin poder verificarse (sin internet). Pasado ese tiempo, pasa a Gratis hasta verificar.
+GRACIA_DIAS = 5       # días que el plan sigue funcionando sin poder verificarse (sin internet). Pasado ese tiempo, pasa a Gratis hasta verificar.
 
 # --- 3) Enlaces (si los dejas vacíos se usan los de marca.py) --------------------------------------------------------
 URL_COMPRA = ""        # página con tus planes en Gumroad (botón «Ver planes y comprar»)
